@@ -41,12 +41,12 @@ public class Mandelbrot extends JFrame{
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);
-			BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+			BufferedImage image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 			
-			for (int x = 0; x < WIDTH; x++) {
-				for (int y = 0; y < HEIGHT; y++) {
-					double real = (x - WIDTH / 2.0) / (WIDTH * zoom / 4.0) + centerX;
-					double imag = (y - HEIGHT / 2.0) / (HEIGHT * zoom / 4.0) + centerY;
+			for (int x = 0; x < getWidth(); x++) {
+				for (int y = 0; y < getHeight(); y++) {
+					double real = (x - getWidth() / 2.0) / (getWidth() * zoom / 4.0) + centerX;
+					double imag = (y - getHeight() / 2.0) / (getHeight() * zoom / 4.0) + centerY;
 					
 					int iterations = calculateMandelbrot(real, imag);
 					image.setRGB(x, y, getColor(iterations));
